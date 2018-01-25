@@ -17,13 +17,88 @@ import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class MainActivity extends AppCompatActivity {
-    int scoreCounter = 0;
+
+    // counter variable for quiz final score
+    private int scoreCounter = 0;
+
+    // VIEWS FOR PROFILE
+    private RadioButton gender;
+    private RadioButton genderMale;
+    private RadioButton genderFemale;
+    private Button profileButton;
+    private EditText nickName;
+    private TextView displayName;
+    private ImageView profileImage;
+    // QUESTION ONE VIEWS
+    private CheckBox q1A1;
+    private CheckBox q1A2;
+    private CheckBox q1A3;
+    private CheckBox q1A4;
+    // QUESTION TWO VIEWS
+    private RadioButton q2A1;
+    private RadioButton q2A2;
+    private RadioButton q2A3;
+    private RadioButton q2A4;
+    // QUESTION THREE VIEWS
+    private EditText q3Answer;
+    private Button q3submitButton;
+    // QUESTION FOUR VIEWS
+    private CheckBox q4A1;
+    private CheckBox q4A2;
+    private CheckBox q4A3;
+    private CheckBox q4A4;
+    // QUESTION FIVE VIEWS
+    private ImageView imageParis;
+    private ImageView imageGreece;
+    private ImageView imageRome;
+    private ImageView imageLondon;
+    // TOTAL SCORE VIEW
+    private TextView totalScore;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // INITIALIZE VARIABLES FOR PROFILE match em with View ID.
+        genderMale = (RadioButton) findViewById(R.id.male_radio_button_id);
+        genderFemale = (RadioButton) findViewById(R.id.female_radio_button_id);
+        profileButton = (Button) findViewById(R.id.profile_button_id);
+        nickName = (EditText) findViewById(R.id.nickname_id);
+        displayName = (TextView) findViewById(R.id.user_name_id);
+        profileImage = (ImageView) findViewById(R.id.profile_image_id);
+
+        // INITIALIZE Checkboxes question1
+        q1A1 = (CheckBox) findViewById(R.id.q1_box1);
+        q1A2 = (CheckBox) findViewById(R.id.q1_box2);
+        q1A3 = (CheckBox) findViewById(R.id.q1_box3);
+        q1A4 = (CheckBox) findViewById(R.id.q1_box4);
+
+        // INITIALIZE RadioButtons question2
+        q2A1 = (RadioButton) findViewById(R.id.q2_radio1);
+        q2A2 = (RadioButton) findViewById(R.id.q2_radio2);
+        q2A3 = (RadioButton) findViewById(R.id.q2_radio3);
+        q2A4 = (RadioButton) findViewById(R.id.q2_radio4);
+
+        // INITIALIZE Edittext and SubmitButton question3
+        q3Answer = (EditText) findViewById(R.id.q3_edittext_id);
+        q3submitButton = (Button) findViewById(R.id.q3_submit_button_id);
+
+        // INITIALIZE Checkboxes question4
+        q4A1 = (CheckBox) findViewById(R.id.q4_box1);
+        q4A2 = (CheckBox) findViewById(R.id.q4_box2);
+        q4A3 = (CheckBox) findViewById(R.id.q4_box3);
+        q4A4 = (CheckBox) findViewById(R.id.q4_box4);
+
+        // INITIALIZE ImageViews question5
+        imageParis = (ImageView) findViewById(R.id.q5_paris_image_id);
+        imageGreece = (ImageView) findViewById(R.id.q5_greece_image_id);
+        imageRome = (ImageView) findViewById(R.id.q5_rome_image_id);
+        imageLondon = (ImageView) findViewById(R.id.q5_london_image_id);
+
+        // INITIALIZE TOTAL SCORE VIEW
+        totalScore = (TextView) findViewById(R.id.score_textview_id);
 
         // Installation CALIGRAPHY FONT STYLE
         CalligraphyConfig.initDefault(new CalligraphyConfig.Builder().setDefaultFontPath("fonts/robotoRegular.ttf").setFontAttrId(R.attr.fontPath).build());
@@ -39,8 +114,7 @@ public class MainActivity extends AppCompatActivity {
     * WHEN YOU PRESS THE IMAGE A MESSAGE APPEARS TELLING YOU ITS AVATAR PICTURE.
     */
     public void avatarMessage (View v){
-        ImageView profileImage = (ImageView) findViewById(R.id.profile_image_id);
-        Toast.makeText(this, "Avatar picture", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, getString(R.string.avatar_message), Toast.LENGTH_SHORT).show();
     }
 
 
@@ -48,17 +122,15 @@ public class MainActivity extends AppCompatActivity {
     * METHOD THAT RETURNS MALE GENDER
     */
     public boolean isMale(){
-        RadioButton gender = (RadioButton) findViewById(R.id.male_radio_button_id);
-        boolean isMale = gender.isChecked();
-        return isMale;
+        gender = (RadioButton) findViewById(R.id.male_radio_button_id);
+        return gender.isChecked();
     }
     /*
     * METHOD THAT RETURNS FEMALE GENDER
     */
     public boolean isFemale(){
-        RadioButton gender = (RadioButton) findViewById(R.id.female_radio_button_id);
-        boolean isFemale = gender.isChecked();
-        return isFemale;
+        gender = (RadioButton) findViewById(R.id.female_radio_button_id);
+        return gender.isChecked();
     }
 
     /*
@@ -68,21 +140,13 @@ public class MainActivity extends AppCompatActivity {
     */
     public void setProfile(View v) {
 
-        //SET VARIABLES by ID.
-        RadioButton genderMale = (RadioButton) findViewById(R.id.male_radio_button_id);
-        RadioButton genderFemale = (RadioButton) findViewById(R.id.female_radio_button_id);
-        Button profileButton = (Button) findViewById(R.id.profile_button_id);
-        EditText nickName = (EditText) findViewById(R.id.nickname_id);
-        TextView displayName = (TextView) findViewById(R.id.user_name_id);
-        ImageView profileImage = (ImageView) findViewById(R.id.profile_image_id);
-
         String titleOfGender;
         if(this.isMale()){
-            titleOfGender = "Mr.";
+            titleOfGender = getString(R.string.user_text_mr);
             profileImage.setImageResource(R.drawable.mal);
         }
         else if(this.isFemale()){
-            titleOfGender = "Miss.";
+            titleOfGender = getString(R.string.user_text_miss);
             profileImage.setImageResource(R.drawable.fem);
         }
         else {
@@ -92,7 +156,7 @@ public class MainActivity extends AppCompatActivity {
 
         String usernameString = nickName.getText().toString();
 
-        displayName.setText(getString(R.string.hello_user_text)+ " " + titleOfGender + usernameString);
+        displayName.setText(getString(R.string.hello_user_text) + " " + titleOfGender + usernameString);
 
         //RESET PROFILE SO IT CAN BE EDITABLE AGAIN
         if(profileButton.getText() == getString(R.string.clear_button_text)){
@@ -124,11 +188,6 @@ public class MainActivity extends AppCompatActivity {
      */
 
     public void questionOne (View v){
-        // Declare Checkboxes
-        CheckBox q1A1 = (CheckBox) findViewById(R.id.q1_box1);
-        CheckBox q1A2 = (CheckBox) findViewById(R.id.q1_box2);
-        CheckBox q1A3 = (CheckBox) findViewById(R.id.q1_box3);
-        CheckBox q1A4 = (CheckBox) findViewById(R.id.q1_box4);
 
         //Set colors depend on answer
         q1A1.setTextColor(Color.GREEN);
@@ -171,11 +230,6 @@ public class MainActivity extends AppCompatActivity {
     *  and the scoreCounter goes +1 for the  final score.
      */
     public void questionTwo (View v){
-        //Declare RadioButtons
-        RadioButton q2A1 = (RadioButton) findViewById(R.id.q2_radio1);
-        RadioButton q2A2 = (RadioButton) findViewById(R.id.q2_radio2);
-        RadioButton q2A3 = (RadioButton) findViewById(R.id.q2_radio3);
-        RadioButton q2A4 = (RadioButton) findViewById(R.id.q2_radio4);
 
         //Set colors depend on answer
         q2A1.setTextColor(Color.RED);
@@ -213,9 +267,7 @@ public class MainActivity extends AppCompatActivity {
      */
 
     public void questionThree (View v){
-        //Declare Edittext and SubmitButton
-        EditText q3Answer = (EditText) findViewById(R.id.q3_edittext_id);
-        Button q3submitButton = (Button) findViewById(R.id.q3_submit_button_id);
+
         // Checks if the given answer is equal to teh correct answer
         // and changes the textcolor to green if correct or red if it's wrong. Also upgrades the scoreCounter. Also disables the button so user cannot repress it.
         if(q3Answer.getText().toString().contentEquals(getString(R.string.madrid_text))){
@@ -240,11 +292,6 @@ public class MainActivity extends AppCompatActivity {
      */
 
     public void questionFour (View v){
-        // Declare Checkboxes
-        CheckBox q4A1 = (CheckBox) findViewById(R.id.q4_box1);
-        CheckBox q4A2 = (CheckBox) findViewById(R.id.q4_box2);
-        CheckBox q4A3 = (CheckBox) findViewById(R.id.q4_box3);
-        CheckBox q4A4 = (CheckBox) findViewById(R.id.q4_box4);
 
         //Set colors depend on answer
         q4A1.setTextColor(Color.RED);
@@ -283,11 +330,6 @@ public class MainActivity extends AppCompatActivity {
     *  and the scoreCounter goes +1 for the  final score.
      *  */
     public void questionFive(View v){
-        // Declare Images
-        ImageView imageParis = (ImageView) findViewById(R.id.q5_paris_image_id);
-        ImageView imageGreece = (ImageView) findViewById(R.id.q5_greece_image_id);
-        ImageView imageRome = (ImageView) findViewById(R.id.q5_rome_image_id);
-        ImageView imageLondon = (ImageView) findViewById(R.id.q5_london_image_id);
 
         //Set colors depend on answer
         imageParis.setBackgroundResource(R.drawable.border_red_style);
@@ -322,18 +364,12 @@ public class MainActivity extends AppCompatActivity {
 
     // display the total score
     public void scoreResult(View v){
-        TextView totalScore = (TextView) findViewById(R.id.score_textview_id);
         totalScore.setText(getString(R.string.score_result_text) + " " + scoreCounter + " " + getString(R.string.of_five_text));
     }
 
     // reset all the questions and score button
     public void resetAllQuiz(View v){
         // RESET FIRST QUESTION~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-        // Declare Checkboxes
-        CheckBox q1A1 = (CheckBox) findViewById(R.id.q1_box1);
-        CheckBox q1A2 = (CheckBox) findViewById(R.id.q1_box2);
-        CheckBox q1A3 = (CheckBox) findViewById(R.id.q1_box3);
-        CheckBox q1A4 = (CheckBox) findViewById(R.id.q1_box4);
 
         //Set colors to default color
         q1A1.setTextColor(Color.BLACK);
@@ -354,11 +390,6 @@ public class MainActivity extends AppCompatActivity {
         q1A4.setChecked(false);
 
         // RESET SECOND QUESTION ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-        //Declare RadioButtons
-        RadioButton q2A1 = (RadioButton) findViewById(R.id.q2_radio1);
-        RadioButton q2A2 = (RadioButton) findViewById(R.id.q2_radio2);
-        RadioButton q2A3 = (RadioButton) findViewById(R.id.q2_radio3);
-        RadioButton q2A4 = (RadioButton) findViewById(R.id.q2_radio4);
 
         //Set colors to default color
         q2A1.setTextColor(Color.BLACK);
@@ -379,20 +410,13 @@ public class MainActivity extends AppCompatActivity {
         q2A4.setChecked(false);
 
         // RESET THIRD QUESTION ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-        //Declare Edittext and SubmitButton
-        EditText q3Answer = (EditText) findViewById(R.id.q3_edittext_id);
-        Button q3submitButton = (Button) findViewById(R.id.q3_submit_button_id);
+
         q3Answer.setTextColor(Color.BLACK);
         q3Answer.setText("");
         q3Answer.setEnabled(true);
         q3submitButton.setEnabled(true);
 
         // RESET FOURTH QUESTION ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-        // Declare Checkboxes
-        CheckBox q4A1 = (CheckBox) findViewById(R.id.q4_box1);
-        CheckBox q4A2 = (CheckBox) findViewById(R.id.q4_box2);
-        CheckBox q4A3 = (CheckBox) findViewById(R.id.q4_box3);
-        CheckBox q4A4 = (CheckBox) findViewById(R.id.q4_box4);
 
         //Set colors to default color
         q4A1.setTextColor(Color.BLACK);
@@ -413,11 +437,6 @@ public class MainActivity extends AppCompatActivity {
         q4A4.setChecked(false);
 
         // RESET FIFTH QUESTION ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-        // Declare Images
-        ImageView imageParis = (ImageView) findViewById(R.id.q5_paris_image_id);
-        ImageView imageGreece = (ImageView) findViewById(R.id.q5_greece_image_id);
-        ImageView imageRome = (ImageView) findViewById(R.id.q5_rome_image_id);
-        ImageView imageLondon = (ImageView) findViewById(R.id.q5_london_image_id);
 
         //Set colors to default color
         imageParis.setBackgroundResource(R.drawable.border_transperant_no_style);
@@ -435,7 +454,6 @@ public class MainActivity extends AppCompatActivity {
         scoreCounter = 0;
 
         // RESET SCORE TEXTVIEW ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-        TextView totalScore = (TextView) findViewById(R.id.score_textview_id);
         totalScore.setText(getString(R.string.score_result_text));
 
     }

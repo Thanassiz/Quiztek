@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">Quiztek</string>
+    <string name="avatar_message">Avatar picture</string>
     <string name="hello_user_text">Hello, </string>
+    <string name="user_text_mr">Mr.</string>
+    <string name="user_text_miss">Miss.</string>
     <string name="profile_button_text">Set Profile</string>
     <string name="clear_button_text">Clear</string>
     <string name="male_radiobutton_text">Male</string>
@@ -18,7 +21,7 @@
     <string name="q2_radio3_text">98.800km</string>
     <string name="q2_radio4_text">12.800km</string>
     <string name="question3_text">What is the capital city of Spain?</string>
-    <string name="enter_nickname_text">Enter nickname...</string>
+    <string name="enter_nickname_text">Enter nickname&#8230;</string>
     <string name="only_capital_letters_text">Only capital letters</string>
     <string name="question3_submit_button_text">Submit</string>
     <string name="madrid_text">MADRID</string>

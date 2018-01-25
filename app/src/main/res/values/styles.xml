@@ -12,7 +12,7 @@
 
     <!-- Styling the questions' text -->
     <style name="DisplayQuestionText">
-        <item name="android:textSize">18dp</item>
+        <item name="android:textSize">18sp</item>
         <item name="android:textColor">@android:color/white</item>
         <item name="android:shadowColor">@android:color/black</item>
         <item name="android:shadowRadius">3</item>
@@ -33,7 +33,7 @@
 
     <!-- Styling Radio Buttons Display -->
     <style name="StyleForRadioButtons">
-        <item name="android:textSize">13sp</item>
+        <item name="android:textSize">12sp</item>
     </style>
 
     <!-- Styling Buttons Display -->

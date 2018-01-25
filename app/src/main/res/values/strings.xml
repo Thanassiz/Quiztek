@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">Quiztek</string>
+    <string name="hello_user_text">Hello, </string>
+    <string name="profile_button_text">Set Profile</string>
+    <string name="clear_button_text">Clear</string>
+    <string name="male_radiobutton_text">Male</string>
+    <string name="female_radiobutton_text">Female</string>
+    <string name="question1_text">What is the world\'s longest river?</string>
+    <string name="amazon_text">Amazon</string>
+    <string name="nile_text">Nile</string>
+    <string name="parana_text">Paraná</string>
+    <string name="congo_text">Congo</string>
+    <string name="correct_answer_text">CORRECT!</string>
+    <string name="wrong_answer_text">WRONG ANSWER!</string>
+    <string name="question2_text">What is the diameter of Earth?</string>
+    <string name="q2_radio1_text">1.200km</string>
+    <string name="q2_radio2_text">28.000km</string>
+    <string name="q2_radio3_text">98.800km</string>
+    <string name="q2_radio4_text">12.800km</string>
+    <string name="question3_text">What is the capital city of Spain?</string>
+    <string name="enter_nickname_text">Enter nickname...</string>
+    <string name="only_capital_letters_text">Only capital letters</string>
+    <string name="question3_submit_button_text">Submit</string>
+    <string name="madrid_text">MADRID</string>
+    <string name="question4_text">Which city is displayed on the image below?</string>
+    <string name="q4_box1_text">Lyon</string>
+    <string name="q4_box2_text">Venice</string>
+    <string name="q4_box3_text">Amsterdam</string>
+    <string name="q4_box4_text">Richmond</string>
+    <string name="question5_text">Which of the following monuments is the Parthenon?</string>
+    <string name="score_result_text">Total Score:</string>
+    <string name="show_score_text">Show Score</string>
+    <string name="of_five_text">of 5!</string>
+    <string name="reset_quiz_text">Reset Quiz</string>
+</resources>

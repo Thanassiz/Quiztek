@@ -1,0 +1,46 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorSuperLightBlue</item>
+        <item name="colorAccent">@android:color/holo_blue_bright</item>
+
+        <item name="android:buttonStyle">@style/StyleForButtons</item>
+    </style>
+
+    <!-- Styling the questions' text -->
+    <style name="DisplayQuestionText">
+        <item name="android:textSize">18dp</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:shadowColor">@android:color/black</item>
+        <item name="android:shadowRadius">3</item>
+        <item name="android:shadowDx">2</item>
+        <item name="android:shadowDy">2</item>
+    </style>
+
+    <!-- Styling Score Display -->
+    <style name="StyleForScore">
+        <item name="fontPath">fonts/sketchScriptCool.otf</item>
+         <item name="android:textSize">24sp</item>
+        <item name="android:textColor">@color/extraLightBlue</item>
+        <item name="android:shadowColor">@android:color/black</item>
+        <item name="android:shadowRadius">3</item>
+        <item name="android:shadowDx">2</item>
+        <item name="android:shadowDy">2</item>
+    </style>
+
+    <!-- Styling Radio Buttons Display -->
+    <style name="StyleForRadioButtons">
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <!-- Styling Buttons Display -->
+    <style name="StyleForButtons" parent="Widget.AppCompat.Button">
+        <item name="android:background">@drawable/gradient_button_style</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:padding">4dp</item>
+    </style>
+
+</resources>

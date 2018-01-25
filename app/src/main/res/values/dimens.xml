@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="activity_16_horizontal">16dp</dimen>
+    <dimen name="activity_16_vertical">16dp</dimen>
+    <dimen name="activity_24_horizontal">24dp</dimen>
+    <dimen name="activity_24_vertical">24dp</dimen>
+    <dimen name="activity_8_horizontal">8dp</dimen>
+    <dimen name="activity_8_vertical">8dp</dimen>
+    <dimen name="activity_4_horizontal">4dp</dimen>
+    <dimen name="activity_4_vertical">4dp</dimen>
+    <dimen name="activity_32_horizontal">32dp</dimen>
+    <dimen name="activity_32_vertical">32dp</dimen>
+
+</resources>
